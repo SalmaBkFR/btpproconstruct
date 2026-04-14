@@ -1,156 +1,230 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscription à l'événement</title>
-
+  <title>Inscription Événement - BTP Pro Construct</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+    }
+
+    body {
       background-color: #f8f5ef;
       font-family: Arial, sans-serif;
       color: #4B3F2F;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
     }
-    .sf-container {
-      max-width: 680px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      border-top: 6px solid #896D40;
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(75, 63, 47, 0.12);
+      padding: 48px 40px;
+      max-width: 560px;
+      width: 100%;
     }
-    .sf-title {
-      font-size: 24px;
+
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .logo-bar .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9C7A4B;
+    }
+
+    .divider-top {
+      height: 3px;
+      background: linear-gradient(90deg, #9C7A4B, #C4A97A, #9C7A4B);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 20px;
       font-weight: 700;
       color: #4B3F2F;
       text-align: center;
-      line-height: 1.4;
-      margin-bottom: 24px;
+      line-height: 1.5;
+      margin-bottom: 32px;
     }
-    .sf-note {
-      font-size: 13px;
-      color: #6c5b43;
-      text-align: right;
-      margin-bottom: 16px;
+
+    .form-group {
+      margin-bottom: 20px;
     }
-    .sf-form label,
-    .sf-form select,
-    .sf-form input[type="text"] {
+
+    label {
       display: block;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .sf-form label {
-      margin: 0 0 8px 0;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: #4B3F2F;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .sf-form input[type="text"],
-    .sf-form select {
-      padding: 12px 14px;
-      border: 1px solid #d6c7ad;
-      border-radius: 10px;
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #D9CFC4;
+      border-radius: 8px;
       font-size: 15px;
-      background-color: #fffdf9;
       color: #4B3F2F;
-      margin-bottom: 18px;
-    }
-    .sf-form input[type="text"]:focus,
-    .sf-form select:focus {
+      background-color: #fdfcfa;
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
-      border-color: #896D40;
-      box-shadow: 0 0 0 3px rgba(137, 109, 64, 0.15);
+      appearance: none;
     }
-    .sf-form input[type="submit"] {
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+      border-color: #9C7A4B;
+      box-shadow: 0 0 0 3px rgba(156, 122, 75, 0.15);
+      background-color: #fff;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239C7A4B' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
       width: 100%;
-      background-color: #896D40;
-      color: #fff;
-      border: none;
       padding: 14px;
+      background: linear-gradient(135deg, #9C7A4B, #C4A97A);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
       font-size: 16px;
       font-weight: 700;
-      border-radius: 10px;
       cursor: pointer;
-      margin-top: 8px;
+      margin-top: 12px;
+      transition: opacity 0.2s, transform 0.1s;
+      letter-spacing: 0.5px;
     }
-    .sf-form input[type="submit"]:hover {
-      background-color: #745b35;
+
+    .submit-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #9C7A4B;
+      margin-top: 24px;
+      opacity: 0.8;
+    }
+
+    .divider-bottom {
+      height: 1px;
+      background-color: #E8E0D5;
+      margin: 28px 0 20px;
+    }
+
+    .required-star {
+      color: #C0392B;
+      margin-left: 2px;
     }
   </style>
 </head>
 <body>
 
-  <div class="sf-container">
-    <div class="sf-title">
-      <strong>📝 Merci de remplir le formulaire pour confirmer votre présence à l'événement de BTP Pro Construct 🏗️</strong>
+  <div class="container">
+
+    <div class="logo-bar">
+      <span class="brand">🏗️ BTP Pro Construct</span>
     </div>
 
-    <div class="sf-note">* Champs obligatoires</div>
+    <div class="divider-top"></div>
 
-    <form class="sf-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg5000004skzZ" method="POST">
+    <h1>📝 Merci de remplir le formulaire pour confirmer votre présence à l'événement de BTP Pro Construct 🏗️</h1>
 
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg5000004skzZ" method="POST">
+
+      <!-- Champs cachés -->
       <input type="hidden" name="oid" value="00Dg5000004skzZ">
       <input type="hidden" name="retURL" value="http://www.2pace.fr/">
       <input type="hidden" name="lead_source" value="Formulaire">
-      <input type="hidden" name="assignmentRuleHeader" value="1">
-      <input type="hidden" id="00Ng500000DWSkr" name="00Ng500000DWSkr" value="EVT-20260411-0001">
+      <input type="hidden" id="00Ng500000DWSkr" name="00Ng500000DWSkr" value="">
 
-      <label for="first_name">Prénom</label>
-      <input id="first_name" maxlength="40" name="first_name" size="20" type="text">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first_name">Prénom <span class="required-star">*</span></label>
+          <input id="first_name" maxlength="40" name="first_name" type="text" placeholder="Jean" required />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Nom <span class="required-star">*</span></label>
+          <input id="last_name" maxlength="80" name="last_name" type="text" placeholder="Dupont" required />
+        </div>
+      </div>
 
-      <label for="last_name">Nom *</label>
-      <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required>
+      <div class="form-group">
+        <label for="title">Fonction</label>
+        <input id="title" maxlength="40" name="title" type="text" placeholder="Chef de projet" />
+      </div>
 
-      <label for="email">Email *</label>
-      <input id="email" maxlength="80" name="email" size="20" type="text" required>
+      <div class="form-group">
+        <label for="email">Email <span class="required-star">*</span></label>
+        <input id="email" maxlength="80" name="email" type="text" placeholder="jean.dupont@entreprise.com" required />
+      </div>
 
-      <label for="company">Entreprise *</label>
-      <input id="company" maxlength="40" name="company" size="20" type="text" required>
+      <div class="form-group">
+        <label for="company">Entreprise <span class="required-star">*</span></label>
+        <input id="company" maxlength="40" name="company" type="text" placeholder="Mon Entreprise" required />
+      </div>
 
-      <label for="00Ng500000DWmRp">Industrie</label>
-      <select id="00Ng500000DWmRp" name="00Ng500000DWmRp" title="Industrie">
-        <option value="">--Sélectionner--</option>
-        <option value="Architecture">Architecture</option>
-        <option value="Bureau d'études">Bureau d'études</option>
-        <option value="Gros oeuvre">Gros oeuvre</option>
-        <option value="Terrassement">Terrassement</option>
-        <option value="Génie civil">Génie civil</option>
-        <option value="Travaux publics">Travaux publics</option>
-        <option value="Géomètre">Géomètre</option>
-        <option value="Electricité">Electricité</option>
-        <option value="Plomberie">Plomberie</option>
-        <option value="Menuiserie">Menuiserie</option>
-        <option value="Peinture">Peinture</option>
-        <option value="Revêtement de sol">Revêtement de sol</option>
-        <option value="Isolation">Isolation</option>
-        <option value="Maintenance">Maintenance</option>
-        <option value="Fournisseur matériaux">Fournisseur matériaux</option>
-        <option value="Distributeur matériaux">Distributeur matériaux</option>
-        <option value="Fabricant matériaux">Fabricant matériaux</option>
-        <option value="Location matériel">Location matériel</option>
-        <option value="Immobilier / Promotion">Immobilier / Promotion</option>
-        <option value="Secteur Public">Secteur Public</option>
-        <option value="Autre">Autre</option>
-      </select>
+      <div class="form-group">
+        <label for="00Ng500000DWSMf">Centre d'intérêt</label>
+        <select id="00Ng500000DWSMf" name="00Ng500000DWSMf" title="Centre d'intérêt">
+          <option value="">-- Sélectionnez --</option>
+          <option value="Infrastructure">Infrastructure</option>
+          <option value="Rénovation">Rénovation</option>
+          <option value="Design">Design</option>
+          <option value="Sécurité">Sécurité</option>
+          <option value="Réglementation">Réglementation</option>
+          <option value="Immobilier commercial">Immobilier commercial</option>
+          <option value="Immobilier résidentiel">Immobilier résidentiel</option>
+        </select>
+      </div>
 
-      <label for="00Ng500000DWSMf">Centre d'intérêt *</label>
-      <select id="00Ng500000DWSMf" name="00Ng500000DWSMf" title="Centre d'intérêt" required>
-        <option value="">--Sélectionner--</option>
-        <option value="Infrastructure">Infrastructure</option>
-        <option value="Rénovation">Rénovation</option>
-        <option value="Design">Design</option>
-        <option value="Sécurité">Sécurité</option>
-        <option value="Réglementation">Réglementation</option>
-        <option value="Immobilier commercial">Immobilier commercial</option>
-        <option value="Immobilier résidentiel">Immobilier résidentiel</option>
-      </select>
+      <div class="divider-bottom"></div>
 
-      <input type="submit" name="submit" value="Valider mon inscription">
+      <input type="submit" class="submit-btn" value="✅ Confirmer ma présence" />
 
     </form>
+
+    <p class="footer-note">Vos données sont traitées de manière confidentielle par BTP Pro Construct.</p>
+
   </div>
 
 </body>
